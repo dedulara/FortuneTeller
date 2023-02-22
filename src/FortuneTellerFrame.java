@@ -24,7 +24,7 @@ public class FortuneTellerFrame extends JFrame
     Color titleLableBackground = Color.decode("#462B3F");
     Color titleLabelForeground = Color.decode("#C58BA4");
     Color fortuneTextAreaBackground = Color.decode("#FFFBA2");
-    Color fortuneTextAreaForeground = Color.decode("#6F5B3E");
+    Color fortuneTextAreaForeground = Color.decode("#000000");
     Color fortunePanelBackground = Color.decode("#FFFDD0");
     Color buttonBackground = Color.decode("#DFB9C9");
 
@@ -53,7 +53,7 @@ public class FortuneTellerFrame extends JFrame
         iconVariable = new ImageIcon("src/FortuneCookiesSmaller.jpg");
         titleLable = new JLabel("FORTUNE TELLER", iconVariable, JLabel.CENTER);
         titleLable.setFont(new Font("Algerian", Font.BOLD, 48));
-        titleLable.setVerticalTextPosition(JLabel.TOP);
+        titleLable.setVerticalTextPosition(JLabel.BOTTOM);
         titleLable.setHorizontalTextPosition(JLabel.CENTER);
         topPanel.add(titleLable);
 
@@ -81,7 +81,7 @@ public class FortuneTellerFrame extends JFrame
     {
         buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridLayout(1, 2));
-        fortuneButton = new JButton("Eat Cookie");
+        fortuneButton = new JButton("Read My Fortune");
         quitButton = new JButton("Quit");
         buttonPanel.add(fortuneButton);
         buttonPanel.add(quitButton);
@@ -92,25 +92,24 @@ public class FortuneTellerFrame extends JFrame
         quitButton.setFont(buttonFont);
 
         ArrayList<String> fortunes = new ArrayList<String>();
-        fortunes.add("Ask not what your fortune cookie can do for you, but what you can do for your fortune cookie.");
+        fortunes.add("Big journeys begin with a single step.");
         fortunes.add("Enjoy yourself while you can.");
         fortunes.add("You are about to finish reading your fortune.");
-        fortunes.add("Error 404: Fortune Not Found.  Try Again.");
-        fortunes.add("Game over. :)");
+        fortunes.add("Practice makes perfect.");
         fortunes.add("Plan to be spontaneous tomorrow.");
-        fortunes.add("Something has happened.");
+        fortunes.add("Those who laugh at themselves never run out of things to laugh at.");
         fortunes.add("There is no angry way to say bubbles.");
         fortunes.add("Whatever you do, always give 100%.  Unless you're donating blood.");
         fortunes.add("Smile today, tomorrow could be worse.");
         fortunes.add("A day without sunshine is like, night.");
         fortunes.add("Dove chocolates taste way better than their soap.");
-        fortunes.add("Shall we play a game?");
+        fortunes.add("Take the high road.");
 
         fortuneButton.addActionListener((ActionEvent ae) ->
         {
-            while(fortuneNumber == lastFortuneNumber) {fortuneNumber = randomFortune.nextInt(13);}
+            while(fortuneNumber == lastFortuneNumber) {fortuneNumber = randomFortune.nextInt(12);}
             lastFortuneNumber = fortuneNumber;
-            fortuneTextArea.append(fortunes.get(fortuneNumber) + "\n\n");
+            fortuneTextArea.append(fortunes.get(fortuneNumber) + "\n");
         });
 
         quitButton.setBackground(buttonBackground);
